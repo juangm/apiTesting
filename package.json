@@ -1,0 +1,38 @@
+{
+  "name": "api-testing",
+  "version": "1.1.0",
+  "repository": "git@github.com:juangm/apiTesting.git",
+  "author": "juangm <juangarciamarinblog@gmail.com>",
+  "scripts": {
+    "test": "mocha --opts ./mocha.opts -r ts-node/register ./tests/*.mocha.ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tslint.json"
+  },
+  "keywords": [
+    "api",
+    "test"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/got": "^9.6.10",
+    "chai": "^4.2.0",
+    "got": "^11.0.2",
+    "mocha": "^7.1.1",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.9.0",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  },
+  "comments": {
+    "@types/chai": "Type definitions for chai.",
+    "@types/got": "Type definitions for got.",
+    "chai": "BDD / TDD assertion library for node",
+    "got": " HTTP request library for Node.js",
+    "mocha": "JavaScript test framework for Node.js",
+    "prettier": "Code formatter",
+    "ts-node": "TypeScript execution and REPL for node.js, with source map support.",
+    "tslint": "Checks TypeScript code for readability, maintainability, and functionality errors",
+    "typescript": "TypeScript compiles to readable, standards-based JavaScript"
+  }
+}

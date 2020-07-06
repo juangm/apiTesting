@@ -1,0 +1,2 @@
+--reporter-options reportDir=reports/
+--timeout 60000

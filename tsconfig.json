@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+  },
+  "include": [
+    "./helpers/*.ts",
+    "./tests/*.ts",
+  ],
+  "exclude": [
+    "./node_modules/*"
+  ],
+}
