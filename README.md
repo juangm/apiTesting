@@ -7,6 +7,7 @@
 ## Description
 
 - Small project to check API functionality from:
+  - New York Times (only the _Most Popular_ API)
   - BitFinex - [documentation](https://docs.bitfinex.com/v2/docs/rest-public)
 
 ## Requirements
