@@ -5,6 +5,7 @@
   "author": "juangm <juangarciamarinblog@gmail.com>",
   "scripts": {
     "test": "mocha --opts ./mocha.opts -r ts-node/register ./tests/*.mocha.ts",
+    "test:argyle": "mocha --opts ./mocha.opts -r ts-node/register ./tests/argyle.mocha.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tslint.json"
   },
