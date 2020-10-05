@@ -13,4 +13,15 @@ describe('Health Check API Argyle', () => {
       'Number providers connected is different than 3',
     );
   });
+  it('Negative TC with wrong credentials', async () => {
+    const result = await apiHelper.wrong_auth();
+    expect(result.response.statusCode).to.be.equals(
+      401,
+      `Got wrong status code ${result.response.statusCode} instead of 401`,
+    );
+    expect(result.response.statusMessage).to.be.equals(
+      'Unauthorized',
+      `Got wrong message "${result.response.statusMessage}" instead of "Unauthorized"`,
+    );
+  });
 });

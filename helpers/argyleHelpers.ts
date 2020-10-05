@@ -17,10 +17,17 @@ export class ArgyleApiHelper {
   });
 
   // TODO: Create interface for response
-  // Set type of days to string to be able to check negative test scenarios
   public async get_users(): Promise<any> {
     try {
       return await this.gotArgyle('users');
+    } catch (err) {
+      return err;
+    }
+  }
+
+  public async wrong_auth(): Promise<any> {
+    try {
+      return await this.wrongCredArgyle('users');
     } catch (err) {
       return err;
     }
