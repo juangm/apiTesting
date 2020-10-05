@@ -1,394 +1,394 @@
 ---
-swagger: "2.0"
-basePath: "/svc/mostpopular/v2"
-host: "api.nytimes.com"
+swagger: '2.0'
+basePath: '/svc/mostpopular/v2'
+host: 'api.nytimes.com'
 schemes:
-  - "https"
+  - 'https'
 info:
-  version: "2.0.0"
-  title: "Most Popular"
+  version: '2.0.0'
+  title: 'Most Popular'
   description: "Provides services for getting the most popular articles on NYTimes.com\
     \ based on emails, shares, or views.\n\nGet most emailed articles for the last\
-    \ day:\n```\n/emailed/1.json\n```\n\nGet most shared articles on Facebook for\
     \ the last day:\n```\n/shared/1/facebook.json\n```\n\nGet most viewed articles\
+    \ day:\n```\n/emailed/1.json\n```\n\nGet most shared articles on Facebook for\
     \ for the last seven days:\n```\n/viewed/7.json\n```\n\n## Example Calls\n```\n\
     https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=yourkey\n```\n\
     \n```\nhttps://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=yourkey\n\
     ```\n\n```\nhttps://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=yourkey\n\
     ```\n"
 produces:
-  - "application/json"
+  - 'application/json'
 security:
   - apikey: []
 paths:
   /emailed/{period}.json:
     get:
-      summary: "Most emailed articles on NYTimes.com."
+      summary: 'Most emailed articles on NYTimes.com.'
       description: "Returns an array of the most emailed articles on NYTimes.com for\
         \ specified period of time (1 day, 7 days, or 30 days).\n"
       parameters:
-        - name: "period"
-          in: "path"
-          description: "Time period: 1, 7, or 30 days."
+        - name: 'period'
+          in: 'path'
+          description: 'Time period: 1, 7, or 30 days.'
           required: true
-          type: "integer"
+          type: 'integer'
           enum:
             - 1
             - 7
             - 30
           default: 1
       tags:
-        - "Most Popular"
+        - 'Most Popular'
       responses:
-        "200":
-          description: "An array of articles."
+        '200':
+          description: 'An array of articles.'
           schema:
-            type: "object"
+            type: 'object'
             properties:
               status:
-                type: "string"
+                type: 'string'
               copyright:
-                type: "string"
+                type: 'string'
               num_results:
-                type: "integer"
+                type: 'integer'
               results:
-                type: "array"
+                type: 'array'
                 items:
-                  $ref: "#/definitions/EmailedArticle"
-        "401":
-          description: "Unauthorized request.  Make sure api-key is set."
-        "429":
+                  $ref: '#/definitions/EmailedArticle'
+        '401':
+          description: 'Unauthorized request.  Make sure api-key is set.'
+        '429':
           description: "Too many requests.  You reached your per minute or per day\
             \ rate limit."
   /shared/{period}.json:
     get:
-      summary: "Most shared articles on NYTimes.com."
+      summary: 'Most shared articles on NYTimes.com.'
       description: "Returns an array of the most shared articles on NYTimes.com for\
         \ specified period of time (1 day, 7 days, or 30 days).\n"
       parameters:
-        - name: "period"
-          in: "path"
-          description: "Time period: 1, 7, or 30 days."
+        - name: 'period'
+          in: 'path'
+          description: 'Time period: 1, 7, or 30 days.'
           required: true
-          type: "integer"
+          type: 'integer'
           enum:
             - 1
             - 7
             - 30
           default: 1
       tags:
-        - "Most Popular"
+        - 'Most Popular'
       responses:
-        "200":
-          description: "An array of articles."
+        '200':
+          description: 'An array of articles.'
           schema:
-            type: "object"
+            type: 'object'
             properties:
               status:
-                type: "string"
+                type: 'string'
               copyright:
-                type: "string"
+                type: 'string'
               num_results:
-                type: "integer"
+                type: 'integer'
               results:
-                type: "array"
+                type: 'array'
                 items:
-                  $ref: "#/definitions/SharedArticle"
-        "401":
-          description: "Unauthorized request.  Make sure api-key is set."
-        "429":
+                  $ref: '#/definitions/SharedArticle'
+        '401':
+          description: 'Unauthorized request.  Make sure api-key is set.'
+        '429':
           description: "Too many requests.  You reached your per minute or per day\
             \ rate limit."
   /shared/{period}/{share_type}.json:
     get:
-      summary: "Most shared articles on NYTimes.com of specified share type."
+      summary: 'Most shared articles on NYTimes.com of specified share type.'
       description: "Returns an array of the most shared articles by share type on\
         \ NYTimes.com for specified period of time (1 day, 7 days, or 30 days).\n"
       parameters:
-        - name: "period"
-          in: "path"
-          description: "Time period: 1, 7, or 30 days."
+        - name: 'period'
+          in: 'path'
+          description: 'Time period: 1, 7, or 30 days.'
           required: true
-          type: "integer"
+          type: 'integer'
           enum:
             - 1
             - 7
             - 30
           default: 1
-        - name: "share_type"
-          in: "path"
-          description: "Share type: facebook."
+        - name: 'share_type'
+          in: 'path'
+          description: 'Share type: facebook.'
           required: true
-          type: "string"
+          type: 'string'
           enum:
-            - "facebook"
-          default: "facebook"
+            - 'facebook'
+          default: 'facebook'
       tags:
-        - "Most Popular"
+        - 'Most Popular'
       responses:
-        "200":
-          description: "An array of articles."
+        '200':
+          description: 'An array of articles.'
           schema:
-            type: "object"
+            type: 'object'
             properties:
               status:
-                type: "string"
+                type: 'string'
               copyright:
-                type: "string"
+                type: 'string'
               num_results:
-                type: "integer"
+                type: 'integer'
               results:
-                type: "array"
+                type: 'array'
                 items:
-                  $ref: "#/definitions/SharedArticle"
-        "401":
-          description: "Unauthorized request.  Make sure api-key is set."
-        "429":
+                  $ref: '#/definitions/SharedArticle'
+        '401':
+          description: 'Unauthorized request.  Make sure api-key is set.'
+        '429':
           description: "Too many requests.  You reached your per minute or per day\
             \ rate limit."
   /viewed/{period}.json:
     get:
-      summary: "Most viewed articles on NYTimes.com."
+      summary: 'Most viewed articles on NYTimes.com.'
       description: "Returns an array of the most viewed articles on NYTimes.com for\
         \ specified period of time (1 day, 7 days, or 30 days).\n"
       parameters:
-        - name: "period"
-          in: "path"
-          description: "Time period: 1, 7, or 30 days."
+        - name: 'period'
+          in: 'path'
+          description: 'Time period: 1, 7, or 30 days.'
           required: true
-          type: "integer"
+          type: 'integer'
           enum:
             - 1
             - 7
             - 30
           default: 1
       tags:
-        - "Most Popular"
+        - 'Most Popular'
       responses:
-        "200":
-          description: "An array of articles."
+        '200':
+          description: 'An array of articles.'
           schema:
-            type: "object"
+            type: 'object'
             properties:
               status:
-                type: "string"
+                type: 'string'
               copyright:
-                type: "string"
+                type: 'string'
               num_results:
-                type: "integer"
+                type: 'integer'
               results:
-                type: "array"
+                type: 'array'
                 items:
-                  $ref: "#/definitions/ViewedArticle"
-        "401":
-          description: "Unauthorized request.  Make sure api-key is set."
-        "429":
+                  $ref: '#/definitions/ViewedArticle'
+        '401':
+          description: 'Unauthorized request.  Make sure api-key is set.'
+        '429':
           description: "Too many requests.  You reached your per minute or per day\
             \ rate limit."
 definitions:
   EmailedArticle:
-    type: "object"
+    type: 'object'
     properties:
       url:
-        type: "string"
+        type: 'string'
       adx_keywords:
-        type: "string"
+        type: 'string'
       subsection:
-        type: "string"
+        type: 'string'
       email_count:
-        type: "integer"
+        type: 'integer'
       count_type:
-        type: "string"
+        type: 'string'
       column:
-        type: "string"
+        type: 'string'
       eta_id:
-        type: "integer"
+        type: 'integer'
       section:
-        type: "string"
+        type: 'string'
       id:
-        type: "integer"
+        type: 'integer'
       asset_id:
-        type: "integer"
+        type: 'integer'
       nytdsection:
-        type: "string"
+        type: 'string'
       byline:
-        type: "string"
+        type: 'string'
       type:
-        type: "string"
+        type: 'string'
       title:
-        type: "string"
+        type: 'string'
       abstract:
-        type: "string"
+        type: 'string'
       published_date:
-        type: "string"
+        type: 'string'
       source:
-        type: "string"
+        type: 'string'
       updated:
-        type: "string"
+        type: 'string'
       des_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       org_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       per_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       geo_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       media:
-        type: "array"
+        type: 'array'
         items:
-          $ref: "#/definitions/Media"
+          $ref: '#/definitions/Media'
       uri:
-        type: "string"
+        type: 'string'
   Media:
-    type: "object"
+    type: 'object'
     properties:
       type:
-        type: "string"
+        type: 'string'
       subtype:
-        type: "string"
+        type: 'string'
       caption:
-        type: "string"
+        type: 'string'
       copyright:
-        type: "string"
+        type: 'string'
       approved_for_syndication:
-        type: "boolean"
+        type: 'boolean'
       media-metadata:
-        type: "array"
+        type: 'array'
         items:
-          $ref: "#/definitions/MediaMetadata"
+          $ref: '#/definitions/MediaMetadata'
   MediaMetadata:
-    type: "object"
+    type: 'object'
     properties:
       url:
-        type: "string"
+        type: 'string'
       format:
-        type: "string"
+        type: 'string'
       height:
-        type: "integer"
+        type: 'integer'
       width:
-        type: "integer"
+        type: 'integer'
   SharedArticle:
-    type: "object"
+    type: 'object'
     properties:
       url:
-        type: "string"
+        type: 'string'
       adx_keywords:
-        type: "string"
+        type: 'string'
       subsection:
-        type: "string"
+        type: 'string'
       share_count:
-        type: "integer"
+        type: 'integer'
       count_type:
-        type: "string"
+        type: 'string'
       column:
-        type: "string"
+        type: 'string'
       eta_id:
-        type: "integer"
+        type: 'integer'
       section:
-        type: "string"
+        type: 'string'
       id:
-        type: "integer"
+        type: 'integer'
       asset_id:
-        type: "integer"
+        type: 'integer'
       nytdsection:
-        type: "string"
+        type: 'string'
       byline:
-        type: "string"
+        type: 'string'
       type:
-        type: "string"
+        type: 'string'
       title:
-        type: "string"
+        type: 'string'
       abstract:
-        type: "string"
+        type: 'string'
       published_date:
-        type: "string"
+        type: 'string'
       source:
-        type: "string"
+        type: 'string'
       updated:
-        type: "string"
+        type: 'string'
       des_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       org_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       per_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       geo_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       media:
-        type: "array"
+        type: 'array'
         items:
-          $ref: "#/definitions/Media"
+          $ref: '#/definitions/Media'
       uri:
-        type: "string"
+        type: 'string'
   ViewedArticle:
-    type: "object"
+    type: 'object'
     properties:
       url:
-        type: "string"
+        type: 'string'
       adx_keywords:
-        type: "string"
+        type: 'string'
       column:
-        type: "string"
+        type: 'string'
       section:
-        type: "string"
+        type: 'string'
       byline:
-        type: "string"
+        type: 'string'
       type:
-        type: "string"
+        type: 'string'
       title:
-        type: "string"
+        type: 'string'
       abstract:
-        type: "string"
+        type: 'string'
       published_date:
-        type: "string"
+        type: 'string'
       source:
-        type: "string"
+        type: 'string'
       id:
-        type: "integer"
+        type: 'integer'
       asset_id:
-        type: "integer"
+        type: 'integer'
       views:
-        type: "integer"
+        type: 'integer'
       des_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       org_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       per_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       geo_facet:
-        type: "array"
+        type: 'array'
         items:
-          type: "string"
+          type: 'string'
       media:
-        type: "array"
+        type: 'array'
         items:
-          $ref: "#/definitions/Media"
+          $ref: '#/definitions/Media'
       uri:
-        type: "string"
+        type: 'string'
 securityDefinitions:
   apikey:
-    type: "apiKey"
-    name: "api-key"
-    in: "query"
+    type: 'apiKey'
+    name: 'api-key'
+    in: 'query'
