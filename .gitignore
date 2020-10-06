@@ -4,3 +4,6 @@ node_modules/**/*
 # Settings and logs
 .vscode/*
 *.log
+
+# ENV file
+.env
