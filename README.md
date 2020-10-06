@@ -31,4 +31,4 @@ yarn test
 
 ## Security Audit
 
-:heavy_check_mark: At 26.04.2020 there is no security vulnerabilities in any of the 336 packages used (direct or indirect)
+:heavy_check_mark: At 06.10.2020 there is no security vulnerabilities in any of the 170 packages used (direct or indirect)
