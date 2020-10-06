@@ -1,8 +1,10 @@
 import { describe, it } from 'mocha';
 import { MostPopularApiHelper } from '../helpers/newYorkHelpers';
 import { expect } from 'chai';
+import { config } from 'dotenv';
 
 describe('Test Suite - Most Popular API', () => {
+  config();
   const apiHelper = new MostPopularApiHelper();
   const validDays: number[] = [1, 7, 30];
   const invalidDays = [0, 16, 31, 'asdf'];

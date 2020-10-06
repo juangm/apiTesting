@@ -1,8 +1,10 @@
 import { describe, it } from 'mocha';
 import { ArgyleApiHelper } from '../helpers/argyleHelpers';
 import { expect } from 'chai';
+import { config } from 'dotenv';
 
 describe('Health Check API Argyle', () => {
+  config();
   const apiHelper = new ArgyleApiHelper();
 
   it('Simple TC for users endpoint', async () => {

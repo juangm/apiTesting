@@ -5,14 +5,14 @@ export class ArgyleApiHelper {
   private gotArgyle = got.extend({
     prefixUrl: 'https://api-sandbox.argyle.io/v1',
     responseType: 'json',
-    username: 'e3223f1fd5a74b6b986c41d71a6e7351',
-    password: '95d1a7b370cf32a4d17466bbbd4d32855498be335f4304a6d4b3c577947ba1f5',
+    username: process.env.ARGYLE_USERNAME,
+    password: process.env.ARGYLE_SECRET,
   });
 
   private wrongCredArgyle = got.extend({
     prefixUrl: 'https://api-sandbox.argyle.io/v1',
     responseType: 'json',
-    username: 'e3223f1fd5a74b6b986c41d71a6e7351',
+    username: process.env.ARGYLE_USERNAME,
     password: 'dfsdfasdfadfadfadf5',
   });
 

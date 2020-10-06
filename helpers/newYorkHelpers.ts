@@ -5,7 +5,7 @@ export class MostPopularApiHelper {
   private gotNyt = got.extend({
     prefixUrl: 'https://api.nytimes.com/svc/mostpopular/v2/',
     responseType: 'json',
-    searchParams: 'api-key=aHnyGug14kfjX7zDd3AMbMGD7zpUKdGH',
+    searchParams: `api-key=${process.env.NEWYORK_API_KEY}`,
   });
 
   private wrongKeyNyt = got.extend({
