@@ -7,3 +7,6 @@ node_modules/**/*
 
 # ENV file
 .env
+
+# Others
+.DS_Store

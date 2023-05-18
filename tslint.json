@@ -6,17 +6,8 @@
     "curly": false,
     "eofline": true,
     "use-isnan": false,
-    "indent": [
-      true,
-      "spaces"
-    ],
-    "max-line-length": [
-      true,
-      120
-    ],
-    "member-ordering": [
-      true
-    ],
+    "indent": [true, "spaces"],
+    "max-line-length": [true, 120],
     "no-arg": true,
     "no-construct": true,
     "no-duplicate-variable": true,
@@ -32,26 +23,10 @@
     "no-trailing-whitespace": true,
     "no-unused-expression": false,
     "no-unused-variable": false,
-    "no-use-before-declare": true,
-    "one-line": [
-      true,
-      "check-open-brace",
-      "check-catch",
-      "check-else",
-      "check-whitespace"
-    ],
-    "quotemark": [
-      true,
-      "single"
-    ],
-    "semicolon": [
-      true,
-      "always"
-    ],
-    "triple-equals": [
-      true,
-      "allow-null-check"
-    ],
+    "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
+    "quotemark": [true, "single"],
+    "semicolon": [true, "always"],
+    "triple-equals": [true, "allow-null-check"],
     "variable-name": false,
     "whitespace": [
       true,

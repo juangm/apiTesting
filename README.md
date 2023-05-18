@@ -12,7 +12,7 @@
 
 ## Requirements
 
-- [Node](https://nodejs.org/en/) at least version 10.13.0
+- [Node](https://nodejs.org/en/) at least version 18
 - [Yarn](https://classic.yarnpkg.com/en/docs/install)
 
 ## Run
@@ -31,4 +31,4 @@ yarn test
 
 ## Security Audit
 
-:heavy_check_mark: At 07.07.2022 there is no security vulnerabilities in any of the 180 packages used (direct or indirect)
+:heavy_check_mark: At 18.05.2023 there is no security vulnerabilities in any of the 340 packages used (direct or indirect)

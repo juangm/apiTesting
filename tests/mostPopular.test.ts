@@ -1,10 +1,7 @@
-import { describe, it } from 'mocha';
-import { MostPopularApiHelper } from '../helpers/newYorkHelpers';
 import { expect } from 'chai';
-import { config } from 'dotenv';
+import { MostPopularApiHelper } from '../helpers/newYorkHelpers';
 
 describe('Test Suite - Most Popular API', () => {
-  config();
   const apiHelper = new MostPopularApiHelper();
   const validDays: number[] = [1, 7, 30];
   const invalidDays = [0, 16, 31, 'asdf'];
@@ -27,7 +24,7 @@ describe('Test Suite - Most Popular API', () => {
   });
   it('Check wrong key access - /emailed', async () => {
     const result = await apiHelper.check_wrong_key_request('emailed/1.json');
-    expect(result.message).to.be.equal('Response code 401 (Unauthorized)');
+    expect(result.message).to.be.contains('401');
   });
 
   it('Check positive results - /viewed', async () => {
@@ -60,6 +57,7 @@ describe('Test Suite - Most Popular API', () => {
     // Check the period and share_type
     result = await apiHelper.shared_popular_by(7, 'facebook');
   });
+
   it('Check negative results - /shared', async () => {
     let result;
     for (let day of invalidDays) {

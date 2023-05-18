@@ -1,6 +1,5 @@
-import { describe, it } from 'mocha';
-import { APIHelper } from '../helpers/bitfinexHelpers';
 import { expect } from 'chai';
+import { APIHelper } from '../helpers/bitfinexHelpers';
 
 describe('Health Check API Bitfinex', () => {
   const apiHelper = new APIHelper();
