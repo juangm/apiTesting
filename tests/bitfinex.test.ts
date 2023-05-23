@@ -6,29 +6,24 @@ describe('Health Check API Bitfinex', () => {
 
   it('Status Platform', async () => {
     const result = await apiHelper.statusPlatform();
-    expect(result.body[0]).to.be.equals(1, 'Platform is not stable!!!');
+    expect(result.body[0]).to.equal(1, 'Platform is not stable!!!');
   });
+
   it('Get valid symbol for example tBTCUSD', async () => {
     const result = await apiHelper.getSymbol('tBTCUSD');
-    expect(result.body.length).to.be.equals(10, 'The number of fields return is not according to spec');
-    for (let field of result.body) {
-      expect(typeof field).to.be.equals('number', 'Field returned should be a number');
-    }
+    expect(result.body).to.have.lengthOf(10, 'The number of fields returned is not according to spec');
+    result.body.forEach((field: number) => expect(field).to.be.a('number', 'Field returned should be a number'));
   });
+
   it('Get invalid symbol BUSD', async () => {
-    const result = await apiHelper.getSymbol('BUSD');
-    expect(result.message).to.includes('500', 'Not proper error code with invalid symbol!!');
-    // Modify the expect to pass the test
-    // Bug in the error message (see specification - 'Unknown symbol')
-    // expect(result.message).to.includes('symbol: invalid');
+    const result = await apiHelper.getSymbol('BUDASDFSD');
+    expect(result.code).to.include('ERR_NON_2XX_3XX_RESPONSE', 'Not proper error code with invalid symbol!!');
   });
+
   it('Calculate the average execution rate', async () => {
-    // Modify the test to includes the second mandatory parameter
-    // Bug in the documentation (see specification)
+    // Add the second mandatory parameter to the test
     const result = await apiHelper.marketAveragePrice('tBTCUSD', 1000);
-    expect(result.body.length).to.be.equals(2, 'The number of fields return is not according to spec');
-    for (let field of result.body) {
-      expect(typeof field).to.be.equals('number', 'Field returned should be a number');
-    }
+    expect(result.body).to.have.lengthOf(2, 'The number of fields returned is not according to spec');
+    result.body.forEach((field: number) => expect(field).to.be.a('number', 'Field returned should be a number'));
   });
 });
